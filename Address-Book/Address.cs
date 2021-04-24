@@ -24,14 +24,14 @@ namespace Address_Book
         public static void printTitle()
         {
 
-
+            Console.WriteLine("************************");
             Console.WriteLine("Please Select Option");
             Console.WriteLine("1 - Add Contact");
             Console.WriteLine("2 - Edit Contact");
             Console.WriteLine("3 - Delete Contact");
             Console.WriteLine("4 - Print AddressBook");
             Console.WriteLine("5 -  Exit");
-
+            Console.WriteLine("************************");
         }
     }
 }
