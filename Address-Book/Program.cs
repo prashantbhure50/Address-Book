@@ -26,7 +26,7 @@ namespace Address_Book
             Console.WriteLine("Enter Person Zip");
             int Zip = Convert.ToInt32(Console.ReadLine());
             list.Add(new Address(FirstName, LastName, AddressDetail, City, State, 7000593588, 495223, Email));
-
+            list.Add(new Address(FirstName, LastName, AddressDetail, City, State, 7000593588, 495223, Email));
             foreach (Address Contact in list)
             {
                 Console.WriteLine(Contact.FirstName + ", " + Contact.LastName + ", " + Contact.AddressDetail + ", " + Contact.City + ", " + Contact.State + ", " + Contact.PhoneNo + ", " + Contact.Zip + ", " + Contact.Email);
