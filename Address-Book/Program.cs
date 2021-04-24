@@ -7,9 +7,11 @@ namespace Address_Book
     {
         static void Main(string[] args)
         {
+           try 
+            { 
             ArrayList list = new ArrayList();
             while (true)
-            {
+             {
                 Address.printTitle();
                 int Check = Convert.ToInt32(Console.ReadLine());
                 switch (Check)
@@ -32,7 +34,8 @@ namespace Address_Book
                         Console.WriteLine("Enter Person Zip");
                         int Zip = Convert.ToInt32(Console.ReadLine());
                         list.Add(new Address(FirstName, LastName, AddressDetail, City, State, 7000593588, 495223, Email));
-                        break;
+                            Console.WriteLine("Contact Added Successfully");
+                            break;
                     case 2:
                         Console.WriteLine("Please Enter Name Which You Want To Edit");
                         string Name = Console.ReadLine();
@@ -44,10 +47,41 @@ namespace Address_Book
                                 contact.FirstName = NewFirestName;
 
                             }
+                            Console.WriteLine("Contact is Edited");
+                        break;
+                    case 3:
+                        Console.WriteLine("Please Enter Name Which You Want To Delete");
+                        string delete = Console.ReadLine();
+                        Address address = null;
+
+                        foreach (Address Contact in list)
+                        {
+                            if (Contact.FirstName == delete)
+                            {
+                                    address = Contact;
+                            }
+                        }
+                        list.Remove(address);
+                            Console.WriteLine("Contact Deleted Successfully");
+                            break;
+                    case 4:
+                        foreach (Address Contact in list)
+                        {
+                            Console.WriteLine(Contact.FirstName + ", " + Contact.LastName + ", " + Contact.AddressDetail + ", " + Contact.City + ", " + Contact.State + ", " + Contact.PhoneNo + ", " + Contact.Zip + ", " + Contact.Email);
+                        }
+                        break;
+                    case 5:
+                        System.Environment.Exit(0);
                         break;
                 }
             }
         }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+        }
     }
-}
+
 
