@@ -6,9 +6,8 @@ namespace Address_Book
 {
     class Address
     {
-        public string FirstName, LastName, AddressDetail, City, State, Email;
-        public double PhoneNo, Zip;
-        public Address(string FirstName, string LastName, string AddressDetail, string City, string State, double PhoneNo, double Zip, string Email)
+        public string FirstName, LastName, AddressDetail, City, State, Email, PhoneNo, Zip;
+       public Address(string FirstName, string LastName, string AddressDetail, string City, string State, string PhoneNo, string Zip, string Email)
         {
             this.FirstName = FirstName;
             this.LastName = LastName;
