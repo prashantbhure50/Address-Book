@@ -29,7 +29,8 @@ namespace Address_Book
             Console.WriteLine("2 - Edit Contact");
             Console.WriteLine("3 - Delete Contact");
             Console.WriteLine("4 - Print AddressBook");
-            Console.WriteLine("5 -  Exit");
+            Console.WriteLine("5 - Search Contact By CITY OR STATE");
+            Console.WriteLine("6 -  Exit");
             Console.WriteLine("************************");
         }
     }
