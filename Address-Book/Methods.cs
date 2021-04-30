@@ -79,5 +79,16 @@ namespace Address_Book
                 Console.WriteLine(Contact.FirstName + ", " + Contact.LastName + ", " + Contact.AddressDetail + ", " + Contact.City + ", " + Contact.State + ", " + Contact.PhoneNo + ", " + Contact.Zip + ", " + Contact.Email);
             }
         }
+        public void FIND_BY_CITY()
+        {
+            Console.WriteLine("Please Enter The CITY  Name");
+            string cityName = Console.ReadLine();
+            foreach (Address contact in list)
+                if (cityName.Equals(contact.City))
+                {
+                    Console.WriteLine("FIRSTNAME - "+contact.FirstName+", "+"CITY - "+ contact.City);
+
+                }
+        }
     }
 }

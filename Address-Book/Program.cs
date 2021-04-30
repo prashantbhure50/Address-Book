@@ -29,8 +29,11 @@ namespace Address_Book
                             method.PRINT_ADDRESSBOOK();
                         break;   
                     case 5:
-                        System.Environment.Exit(0);
+                            method.FIND_BY_CITY();
                         break;
+                        case 6:
+                            System.Environment.Exit(0);
+                            break;
                 }
             }
         }
