@@ -16,25 +16,28 @@ namespace Address_Book
                 int Check = Convert.ToInt32(Console.ReadLine());
                 switch (Check)
                 {
-                    case 1:
+                     case 1:
                             method.ADD_ADDRESSBOOK();
-                        break;
-                    case 2:
+                     break;
+                     case 2:
                             method.EDIT_ADDRESSBOOK();
-                        break;
-                    case 3:
+                     break;
+                     case 3:
                             method.DELETE_ADDRESSBOOK();
-                        break;
-                    case 4:
+                     break;
+                     case 4:
                             method.PRINT_ADDRESSBOOK();
-                        break;   
-                    case 5:
+                     break;   
+                     case 5:
                             method.FIND_BY_CITY();
-                        break;
-                        case 6:
+                     break;
+                     case 6:
+                            method.COUNT_ADDRESSBOOK();
+                     break;
+                     case 7:
                             System.Environment.Exit(0);
-                            break;
-                }
+                     break;
+                    }
             }
         }
             catch (Exception e)

@@ -90,5 +90,9 @@ namespace Address_Book
 
                 }
         }
+        public void COUNT_ADDRESSBOOK()
+        {
+            Console.WriteLine("Total Number Of Contact In AddressBook Are - "+list.Count); 
+        }
     }
 }
