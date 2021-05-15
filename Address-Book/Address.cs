@@ -17,12 +17,9 @@ namespace Address_Book
             this.PhoneNo = PhoneNo;
             this.Zip = Zip;
             this.Email = Email;
-
         }
-
         public static void printTitle()
         {
-
             Console.WriteLine("************************");
             Console.WriteLine("Please Select Option");
             Console.WriteLine("1 - Add Contact");
