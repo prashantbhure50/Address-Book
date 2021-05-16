@@ -35,6 +35,9 @@ namespace Address_Book
                             method.COUNT_ADDRESSBOOK();
                      break;
                      case 7:
+                            method.ReadFromStreamReader();
+                     break;
+                     case 8:
                             System.Environment.Exit(0);
                      break;
                     }

@@ -28,7 +28,8 @@ namespace Address_Book
             Console.WriteLine("4 - Print AddressBook");
             Console.WriteLine("5 - Search Contact By CITY OR STATE");
             Console.WriteLine("6 - View AdderssBook");
-            Console.WriteLine("7 - Exit");
+            Console.WriteLine("7 - Read Form Text File");
+            Console.WriteLine("8 - Exit");
             Console.WriteLine("************************");
         }
     }

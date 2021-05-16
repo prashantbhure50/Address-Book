@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace Address_Book
@@ -8,7 +9,9 @@ namespace Address_Book
    public  class Methods
     {
       
-       private Dictionary<int , Address> addressbook = new Dictionary<int , Address>();
+       private Dictionary<int, Address> addressbook = new Dictionary<int, Address>();
+       string path = @"C:\Users\prash\source\repos\Address-Book\Address-Book\ContactsList.txt";
+        
          public  void ADD_ADDRESSBOOK()
         {
             try
@@ -47,10 +50,16 @@ namespace Address_Book
                 string Zip = Console.ReadLine();
                 Address address= new Address(FirstName, LastName, AddressDetail, City, State, PhoneNo, Zip, Email);
                 addressbook.Add(key, address);
+                using (StreamWriter sr = File.AppendText(path))
+                {
+                    sr.WriteLine(key +","+ address.FirstName + "," + address.LastName + "," + address.AddressDetail + "," + address.City + "," + address.State + "," + address.PhoneNo + "," + address.Zip + "," + address.Email);
+                    sr.Close();
+                }
                 Console.WriteLine("Contact Added Successfully");
             }
             catch (Exception e)
-            { }    
+            { 
+            }    
          }
         public void EDIT_ADDRESSBOOK()
         {
@@ -99,5 +108,22 @@ namespace Address_Book
         {
             Console.WriteLine("Total Number Of Contact In AddressBook Are - "+ addressbook.Count); 
         }
+
+        public void ReadFromStreamReader()
+        {
+            using (StreamReader sr = File.OpenText(path))
+            {
+                String s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+            }
+        }
+       
+       
+
+
+
     }
 }
