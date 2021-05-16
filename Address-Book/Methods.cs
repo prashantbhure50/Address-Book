@@ -10,7 +10,7 @@ namespace Address_Book
     {
       
        private Dictionary<int, Address> addressbook = new Dictionary<int, Address>();
-       string path = @"C:\Users\prash\source\repos\Address-Book\Address-Book\ContactsList.txt";
+       string path = @"C:\Users\prash\source\repos\Address-Book\Address-Book\ContactData.csv";
         
          public  void ADD_ADDRESSBOOK()
         {
@@ -52,7 +52,7 @@ namespace Address_Book
                 addressbook.Add(key, address);
                 using (StreamWriter sr = File.AppendText(path))
                 {
-                    sr.WriteLine(key +","+ address.FirstName + "," + address.LastName + "," + address.AddressDetail + "," + address.City + "," + address.State + "," + address.PhoneNo + "," + address.Zip + "," + address.Email);
+                    sr.WriteLine(address.FirstName + "," + address.LastName + "," + address.AddressDetail + "," + address.City + "," + address.State + "," + address.PhoneNo + "," + address.Zip + "," + address.Email);
                     sr.Close();
                 }
                 Console.WriteLine("Contact Added Successfully");
@@ -108,7 +108,6 @@ namespace Address_Book
         {
             Console.WriteLine("Total Number Of Contact In AddressBook Are - "+ addressbook.Count); 
         }
-
         public void ReadFromStreamReader()
         {
             using (StreamReader sr = File.OpenText(path))
@@ -119,9 +118,11 @@ namespace Address_Book
                     Console.WriteLine(s);
                 }
             }
+        }    
+       public void CONVERT_TO_JSON()
+        {
+            ContactToJson.ImplementCSVToJSon();
         }
-       
-       
 
 
 
