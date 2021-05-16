@@ -38,6 +38,9 @@ namespace Address_Book
                             method.ReadFromStreamReader();
                      break;
                      case 8:
+                            method.CONVERT_TO_JSON();
+                     break;
+                     case 9:
                             System.Environment.Exit(0);
                      break;
                     }
