@@ -8,14 +8,14 @@ namespace Address_Book
    public  class Methods
     {
       
-       private Dictionary<int , Address> Addressbook = new Dictionary<int , Address>();
+       private Dictionary<int , Address> addressbook = new Dictionary<int , Address>();
          public  void ADD_ADDRESSBOOK()
         {
             try
             {
                 Console.WriteLine("Enter Unique  Key Value FirstName");
                 int key = Convert.ToInt32(Console.ReadLine());
-                foreach (var contact in Addressbook)
+                foreach (var contact in addressbook)
                     if (key.Equals(contact.Key))
                     {
                         Console.WriteLine("Key Is already Used Enter New Key !!");
@@ -23,7 +23,7 @@ namespace Address_Book
                     }
                 Console.WriteLine("Enter Person New FirstName");
                 string FirstName = Console.ReadLine();
-                foreach (var contact in Addressbook)
+                foreach (var contact in addressbook)
                     if (FirstName.Equals(contact.Value.FirstName))
                     {
                         Console.WriteLine("Contact Is Already Added In Your ADDRESSBOOK!!");
@@ -45,8 +45,8 @@ namespace Address_Book
                 string PhoneNo = Console.ReadLine();
                 Console.WriteLine("Enter Person Zip");
                 string Zip = Console.ReadLine();
-                Address a= new Address(FirstName, LastName, AddressDetail, City, State, PhoneNo, Zip, Email);
-                Addressbook.Add(key, a);
+                Address address= new Address(FirstName, LastName, AddressDetail, City, State, PhoneNo, Zip, Email);
+                addressbook.Add(key, address);
                 Console.WriteLine("Contact Added Successfully");
             }
             catch (Exception e)
@@ -56,7 +56,7 @@ namespace Address_Book
         {
             Console.WriteLine("Please Enter Name Which You Want To Edit");
             string Name = Console.ReadLine();
-            foreach (var contact in Addressbook)
+            foreach (var contact in addressbook)
                 if (Name.Equals(contact.Value.FirstName))
                 {
                     Console.WriteLine("Enter new FirstName");
@@ -69,18 +69,18 @@ namespace Address_Book
         {
             Console.WriteLine("Please Enter Name Which You Want To Delete");
             string delete = Console.ReadLine();
-            foreach (var Contact in Addressbook)
+            foreach (var Contact in addressbook)
             {
                 if (Contact.Value.FirstName == delete)
                 {
-                    Addressbook.Remove(Contact.Key);
+                    addressbook.Remove(Contact.Key);
                 }
             }   
             Console.WriteLine("Contact Deleted Successfully");
         }
         public void PRINT_ADDRESSBOOK()
         {
-            foreach (var Contact in Addressbook)
+            foreach (var Contact in addressbook)
             {
                 Console.WriteLine(Contact.Value.FirstName + ", " + Contact.Value.LastName + ", " + Contact.Value.AddressDetail + ", " + Contact.Value.City + ", " + Contact.Value.State + ", " + Contact.Value.PhoneNo + ", " + Contact.Value.Zip + ", " + Contact.Value.Email);
             }
@@ -89,7 +89,7 @@ namespace Address_Book
         {
             Console.WriteLine("Please Enter The CITY  Name");
             string cityName = Console.ReadLine();
-            foreach (var contact in Addressbook)
+            foreach (var contact in addressbook)
                 if (cityName.Equals(contact.Value.City))
                 {
                     Console.WriteLine("FIRSTNAME - "+contact.Value.FirstName +", "+"CITY - "+ contact.Value.City);
@@ -97,7 +97,7 @@ namespace Address_Book
         }
         public void COUNT_ADDRESSBOOK()
         {
-            Console.WriteLine("Total Number Of Contact In AddressBook Are - "+ Addressbook.Count); 
+            Console.WriteLine("Total Number Of Contact In AddressBook Are - "+ addressbook.Count); 
         }
     }
 }
