@@ -17,30 +17,33 @@ namespace Address_Book
                 switch (Check)
                 {
                      case 1:
-                            method.ADD_ADDRESSBOOK();
+                            method.AddAddressbook();
                      break;
                      case 2:
-                            method.EDIT_ADDRESSBOOK();
+                            method.EditAddressbook();
                      break;
                      case 3:
-                            method.DELETE_ADDRESSBOOK();
+                            method.DeleteAddressbook();
                      break;
                      case 4:
-                            method.PRINT_ADDRESSBOOK();
+                            method.PrintAddressbook();
                      break;   
                      case 5:
-                            method.FIND_BY_CITY();
+                            method.FindByCity();
                      break;
                      case 6:
-                            method.COUNT_ADDRESSBOOK();
+                            method.CountAddressbook();
                      break;
                      case 7:
                             method.ReadFromStreamReader();
                      break;
                      case 8:
-                            method.CONVERT_TO_JSON();
+                            method.ConvertToCSV();
                      break;
                      case 9:
+                            method.ConvertToJSON();
+                     break;
+                     case 10:
                             System.Environment.Exit(0);
                      break;
                     }
@@ -48,7 +51,7 @@ namespace Address_Book
         }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                Console.WriteLine(e); 
             }
         }
         }

@@ -12,17 +12,17 @@ namespace Address_Book
        private Dictionary<int, Address> addressbook = new Dictionary<int, Address>();
        string path = @"C:\Users\prash\source\repos\Address-Book\Address-Book\ContactData.csv";
         
-         public  void ADD_ADDRESSBOOK()
+         public  void AddAddressbook()
         {
             try
             {
-                Console.WriteLine("Enter Unique  Key Value FirstName");
+                Console.WriteLine("Enter Unique  Key Value ");
                 int key = Convert.ToInt32(Console.ReadLine());
                 foreach (var contact in addressbook)
                     if (key.Equals(contact.Key))
                     {
                         Console.WriteLine("Key Is already Used Enter New Key !!");
-                        ADD_ADDRESSBOOK();
+                        AddAddressbook();
                     }
                 Console.WriteLine("Enter Person New FirstName");
                 string FirstName = Console.ReadLine();
@@ -30,9 +30,7 @@ namespace Address_Book
                     if (FirstName.Equals(contact.Value.FirstName))
                     {
                         Console.WriteLine("Contact Is Already Added In Your ADDRESSBOOK!!");
-                        Console.WriteLine();
-                        Console.WriteLine();
-                        ADD_ADDRESSBOOK();
+                        AddAddressbook();
                     }
                 Console.WriteLine("Enter Person LastName");
                 string LastName = Console.ReadLine();
@@ -61,7 +59,7 @@ namespace Address_Book
             { 
             }    
          }
-        public void EDIT_ADDRESSBOOK()
+        public void EditAddressbook()
         {
             Console.WriteLine("Please Enter Name Which You Want To Edit");
             string Name = Console.ReadLine();
@@ -74,7 +72,7 @@ namespace Address_Book
                 }
             Console.WriteLine("Contact is Edited");
         }
-        public void DELETE_ADDRESSBOOK()
+        public void DeleteAddressbook()
         {
             Console.WriteLine("Please Enter Name Which You Want To Delete");
             string delete = Console.ReadLine();
@@ -87,14 +85,14 @@ namespace Address_Book
             }   
             Console.WriteLine("Contact Deleted Successfully");
         }
-        public void PRINT_ADDRESSBOOK()
+        public void PrintAddressbook()
         {
             foreach (var Contact in addressbook)
             {
                 Console.WriteLine(Contact.Value.FirstName + ", " + Contact.Value.LastName + ", " + Contact.Value.AddressDetail + ", " + Contact.Value.City + ", " + Contact.Value.State + ", " + Contact.Value.PhoneNo + ", " + Contact.Value.Zip + ", " + Contact.Value.Email);
             }
         }
-        public void FIND_BY_CITY()
+        public void FindByCity()
         {
             Console.WriteLine("Please Enter The CITY  Name");
             string cityName = Console.ReadLine();
@@ -104,7 +102,7 @@ namespace Address_Book
                     Console.WriteLine("FIRSTNAME - "+contact.Value.FirstName +", "+"CITY - "+ contact.Value.City);
                 }
         }
-        public void COUNT_ADDRESSBOOK()
+        public void CountAddressbook()
         {
             Console.WriteLine("Total Number Of Contact In AddressBook Are - "+ addressbook.Count); 
         }
@@ -119,12 +117,14 @@ namespace Address_Book
                 }
             }
         }    
-       public void CONVERT_TO_JSON()
+        public void ConvertToJSON()
         {
             ContactToJson.ImplementCSVToJSon();
         }
-
-
+        public void ConvertToCSV()
+        {
+            ContactToCSV.ImplementCSVDataHandling();
+        }
 
     }
 }
