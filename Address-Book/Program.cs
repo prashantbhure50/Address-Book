@@ -9,8 +9,8 @@ namespace Address_Book
         {
            try 
             {
-                Methods method = new Methods();
-            while (true)
+            Methods method = new Methods();
+             while (true)
              {
                 Address.printTitle();
                 int Check = Convert.ToInt32(Console.ReadLine());
