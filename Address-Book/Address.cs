@@ -6,7 +6,6 @@ namespace Address_Book
 {
    public class Address
     {
-
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string AddressDetail { get; set; }
@@ -15,7 +14,6 @@ namespace Address_Book
         public string PhoneNo { get; set; }
         public string Email { get; set; }
         public string Zip { get; set; }
-     
        public Address(string FirstName, string LastName, string AddressDetail, string City, string State, string PhoneNo, string Zip, string Email)
         {
             this.FirstName = FirstName;
