@@ -4,9 +4,18 @@ using System.Text;
 
 namespace Address_Book
 {
-    class Address
+   public class Address
     {
-        public string FirstName, LastName, AddressDetail, City, State, Email, PhoneNo, Zip;
+
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string AddressDetail { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string PhoneNo { get; set; }
+        public string Email { get; set; }
+        public string Zip { get; set; }
+     
        public Address(string FirstName, string LastName, string AddressDetail, string City, string State, string PhoneNo, string Zip, string Email)
         {
             this.FirstName = FirstName;
@@ -28,9 +37,9 @@ namespace Address_Book
             Console.WriteLine("4 - Print AddressBook");
             Console.WriteLine("5 - Search Contact By CITY OR STATE");
             Console.WriteLine("6 - View AdderssBook");
-            Console.WriteLine("7 - Read Form Text File");
-            Console.WriteLine("8 - Convert Text To CSV");
-            Console.WriteLine("9 - Convert CSV To JSON");
+            Console.WriteLine("7 - Read And Write From File IO");
+            Console.WriteLine("8 - Read And Write From File From CSV");
+            Console.WriteLine("9 - Read And Write From File From JSON");
             Console.WriteLine("10 - Exit");
             Console.WriteLine("************************");
         }
