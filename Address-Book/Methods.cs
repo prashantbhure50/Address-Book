@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace Address_Book
@@ -10,6 +11,7 @@ namespace Address_Book
     {
        private Dictionary<string, Address> addressbook = new Dictionary<string, Address>();
        string path = @"C:\Users\prash\source\repos\Address-Book\Address-Book\ContactData.csv";
+        
          public  void AddAddressbook()
         {
             try
@@ -49,6 +51,19 @@ namespace Address_Book
             { 
             }    
          }
+      public void PreDedinedcontactList()
+        {
+            Address address0 = new Address("alok", "Bhure", "Tifra", "Bilaspur", "Chhattisgarh", "7000593588", "495223", "Aloktbhure50@gmail.com");
+            Address address1 = new Address("Prashant", "Bhure", "Tifra", "Bilaspur", "Chhattisgarh", "8965940302", "495223", "prashantbhure@gmail.com");
+            Address address2 = new Address("Ashish", "Gupta", "BTM", "Bengaluru", "Karanataka", "7000593588", "560076", "AshishGupta@gmail.com");
+            Address address3 = new Address("Manish", "Sharma", "Andheri", "Mumbai", "Maharastra", "7456732456", "63456", "Manishsharma@gmail.com");
+            Address address4 = new Address("Shahshank", "Gupta", "Nirakia", "korba", "Chhattisgarh", "9874920382", "489223", "Shashankgupta@gmail.com");
+            addressbook.Add(address0.FirstName, address0);
+            addressbook.Add(address1.FirstName, address1);
+            addressbook.Add(address2.FirstName, address2);
+            addressbook.Add(address3.FirstName, address3);
+            addressbook.Add(address4.FirstName, address4);
+        }
         public void EditAddressbook()
         {
             Console.WriteLine("Please Enter Name Which You Want To Edit");
@@ -75,7 +90,17 @@ namespace Address_Book
             }   
             Console.WriteLine("Contact Deleted Successfully");
         }
-        public void PrintAddressbook()
+        public void PrintSortedAddressbook()
+        {
+            var items = from pair in addressbook
+               orderby pair.Key ascending
+                        select pair;
+            foreach (KeyValuePair <string, Address> contact in items)
+            {
+              Console.WriteLine(contact.Value.FirstName+", "+contact.Value.LastName+", "+contact.Value.AddressDetail+", "+contact.Value.City+", "+contact.Value.State+", "+contact.Value.PhoneNo+", "+contact.Value.Zip);                    
+            }
+        }
+        public void FileIo()
         {
             using (StreamReader sr = File.OpenText(path))
             {
