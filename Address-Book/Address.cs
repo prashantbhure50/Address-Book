@@ -27,7 +27,7 @@ namespace Address_Book
         }
         public static void printTitle()
         {
-            Console.WriteLine("************************");
+            Console.WriteLine("****************************************");
             Console.WriteLine("Please Select Option");
             Console.WriteLine("1 - Add Contact");
             Console.WriteLine("2 - Edit Contact");
@@ -35,11 +35,11 @@ namespace Address_Book
             Console.WriteLine("4 - Print AddressBook");
             Console.WriteLine("5 - Search Contact By CITY OR STATE");
             Console.WriteLine("6 - View AdderssBook");
-            Console.WriteLine("7 - Read And Write From File IO");
-            Console.WriteLine("8 - Read And Write From File From CSV");
-            Console.WriteLine("9 - Read And Write From File From JSON");
-            Console.WriteLine("10 - Exit");
-            Console.WriteLine("************************");
+            Console.WriteLine("7 - Read And Write From File From CSV");
+            Console.WriteLine("8 - Read And Write From File From JSON");
+            Console.WriteLine("9 - Exit");
+            Console.WriteLine("****************************************");
+            
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Address_Book
         static void Main(string[] args)
         {
            try 
-            {
+           {
             Methods method = new Methods();
              while (true)
              {
@@ -35,26 +35,23 @@ namespace Address_Book
                             method.CountAddressbook();
                      break;
                      case 7:
-                            method.ReadFromStreamReader();
-                     break;
-                     case 8:
                             method.ConvertToCSV();
                      break;
-                     case 9:
+                     case 8:
                             method.ConvertToJSON();
                      break;
-                     case 10:
+                     case 9:
                             System.Environment.Exit(0);
                      break;
-                    }
-            }
-        }
-            catch (Exception e)
-            {
+                }
+             }
+           }
+             catch (Exception e)
+             {
                 Console.WriteLine(e); 
-            }
-        }
+             }
         }
     }
+}
 
 

@@ -1,7 +1,1 @@
-FirstName,LastName,AddressDetail,City,State,PhoneNo,Email,Zip
-alok,a,a,a,a,a,a,a
-alok,a,a,a,a,a,a,a
-alok,a,a,a,a,a,a,a
-alok,a,a,a,a,a,a,a
-alok,a,a,a,a,a,a,a
-alok,1,1,1,1,1,1,1
+[{"FirstName":"John","LastName":"Doe","AddressDetail":"120 jefferson st.","City":"Riverside","State":"NJ","PhoneNo":"7000593588","Email":"john@gmail.com","Zip":"080750"},{"FirstName":"Jack","LastName":"McGinnis","AddressDetail":"220 hobo Av.","City":"Phila","State":"PA","PhoneNo":"7000593588","Email":"jack@gmail.com","Zip":"091190"},{"FirstName":"John Da Man","LastName":"Repici","AddressDetail":"120 Jefferson st.","City":"Riverside","State":"NJ","PhoneNo":"7000593588","Email":"johnDajack@gmail.com","Zip":"080750"},{"FirstName":"Stephan","LastName":"Tyler","AddressDetail":"7452 Terrace At the Plaza road","City":"SomeTown","State":"SD","PhoneNo":"7000593588","Email":"stephenjack@gmail.com","Zip":"912340"},{"FirstName":"sam","LastName":"huge","AddressDetail":"Blankman","City":"SomeTown","State":"SD","PhoneNo":"00298","Email":"0","Zip":"7000593588"},{"FirstName":"Joan the bone Anne","LastName":"Jet","AddressDetail":"9th at Terrace plc","City":"desert City","State":"C0","PhoneNo":"7000593588","Email":"joanjack@gmail.comalok","Zip":"001230"}]

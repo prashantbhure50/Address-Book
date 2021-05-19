@@ -8,22 +8,12 @@ namespace Address_Book
 {
    public  class Methods
     {
-      
-       private Dictionary<int, Address> addressbook = new Dictionary<int, Address>();
+       private Dictionary<string, Address> addressbook = new Dictionary<string, Address>();
        string path = @"C:\Users\prash\source\repos\Address-Book\Address-Book\ContactData.csv";
-        
          public  void AddAddressbook()
         {
             try
             {
-                Console.WriteLine("Enter Unique  Key Value ");
-                int key = Convert.ToInt32(Console.ReadLine());
-                foreach (var contact in addressbook)
-                    if (key.Equals(contact.Key))
-                    {
-                        Console.WriteLine("Key Is already Used Enter New Key !!");
-                        AddAddressbook();
-                    }
                 Console.WriteLine("Enter Person New FirstName");
                 string FirstName = Console.ReadLine();
                 foreach (var contact in addressbook)
@@ -47,7 +37,7 @@ namespace Address_Book
                 Console.WriteLine("Enter Person Zip");
                 string Zip = Console.ReadLine();
                 Address address= new Address(FirstName, LastName, AddressDetail, City, State, PhoneNo, Zip, Email);
-                addressbook.Add(key, address);
+                addressbook.Add(FirstName, address);
                 using (StreamWriter sr = File.AppendText(path))
                 {
                     sr.WriteLine(address.FirstName + "," + address.LastName + "," + address.AddressDetail + "," + address.City + "," + address.State + "," + address.PhoneNo + "," + address.Zip + "," + address.Email);
@@ -87,9 +77,15 @@ namespace Address_Book
         }
         public void PrintAddressbook()
         {
-            foreach (var Contact in addressbook)
+            using (StreamReader sr = File.OpenText(path))
             {
-                Console.WriteLine(Contact.Value.FirstName + ", " + Contact.Value.LastName + ", " + Contact.Value.AddressDetail + ", " + Contact.Value.City + ", " + Contact.Value.State + ", " + Contact.Value.PhoneNo + ", " + Contact.Value.Zip + ", " + Contact.Value.Email);
+                Console.WriteLine();
+                String s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+                Console.WriteLine();
             }
         }
         public void FindByCity()
@@ -104,19 +100,8 @@ namespace Address_Book
         }
         public void CountAddressbook()
         {
-            Console.WriteLine("Total Number Of Contact In AddressBook Are - "+ addressbook.Count); 
-        }
-        public void ReadFromStreamReader()
-        {
-            using (StreamReader sr = File.OpenText(path))
-            {
-                String s = "";
-                while ((s = sr.ReadLine()) != null)
-                {
-                    Console.WriteLine(s);
-                }
-            }
-        }    
+            Console.WriteLine(" Total Number Of Contact In AddressBook Are - "+ addressbook.Count); 
+        }  
         public void ConvertToJSON()
         {
             ContactToJson.ImplementCSVToJSon();
