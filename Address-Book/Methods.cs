@@ -56,7 +56,7 @@ namespace Address_Book
             Address address0 = new Address("Alok", "Bhure", "Tifra", "Bilaspur", "Chhattisgarh", "7000593588", "495223", "Aloktbhure50@gmail.com");
             Address address1 = new Address("Prashant", "Bhure", "Tifra", "Bilaspur", "Chhattisgarh", "8965940302", "495223", "prashantbhure@gmail.com");
             Address address2 = new Address("Ashish", "Gupta", "BTM", "Bengaluru", "Karanataka", "7000593588", "560076", "AshishGupta@gmail.com");
-            Address address3 = new Address("Manish", "Sharma", "Andheri", "Mumbai", "Maharastra", "7456732456", "63456", "Manishsharma@gmail.com");
+            Address address3 = new Address("Manish", "Sharma", "Andheri", "Mumbai", "Maharastra", "7456732456", "623456", "Manishsharma@gmail.com");
             Address address4 = new Address("Shahshank", "Gupta", "Nirakia", "korba", "Chhattisgarh", "9874920382", "489223", "Shashankgupta@gmail.com");
             addressbook.Add(address0.FirstName, address0);
             addressbook.Add(address1.FirstName, address1);
