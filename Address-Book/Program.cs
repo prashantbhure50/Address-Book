@@ -10,9 +10,10 @@ namespace Address_Book
            try 
            {
             Methods method = new Methods();
-             while (true)
+            method.PreDedinedcontactList();
+            while (true)
              {
-                Address.printTitle();
+                Address.printTitle();                   
                 int Check = Convert.ToInt32(Console.ReadLine());
                 switch (Check)
                 {
@@ -26,7 +27,7 @@ namespace Address_Book
                             method.DeleteAddressbook();
                      break;
                      case 4:
-                            method.PrintAddressbook();
+                            method.PrintSortedAddressbook();
                      break;   
                      case 5:
                             method.FindByCity();
@@ -35,16 +36,19 @@ namespace Address_Book
                             method.CountAddressbook();
                      break;
                      case 7:
-                            method.ConvertToCSV();
+                            method.FileIo();
                      break;
                      case 8:
-                            method.ConvertToJSON();
+                            method.ConvertToCSV();
                      break;
                      case 9:
+                            method.ConvertToJSON();
+                     break;
+                     case 10:
                             System.Environment.Exit(0);
                      break;
                 }
-             }
+            }
            }
              catch (Exception e)
              {
