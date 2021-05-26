@@ -38,7 +38,8 @@ namespace Address_Book
             Console.WriteLine("7 - Read And Write From File IO");
             Console.WriteLine("8 - Read And Write From File From CSV");
             Console.WriteLine("9 - Read And Write From File From JSON");
-            Console.WriteLine("10 - Exit");
+            Console.WriteLine("10 - Get All Data From DATABASE");
+            Console.WriteLine("11 - Exit");
             Console.WriteLine("****************************************");
             
         }

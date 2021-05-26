@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -11,11 +12,14 @@ namespace Address_Book
     {
        private Dictionary<string, Address> addressbook = new Dictionary<string, Address>();
        string path = @"C:\Users\prash\source\repos\Address-Book\Address-Book\ContactData.csv";
-        
-         public  void AddAddressbook()
+        ContactRepo repo = new ContactRepo();
+        ContactModle modle = new ContactModle();
+
+        public  void AddAddressbook()
         {
             try
             {
+                
                 Console.WriteLine("Enter Person New FirstName");
                 string FirstName = Console.ReadLine();
                 foreach (var contact in addressbook)
@@ -38,20 +42,37 @@ namespace Address_Book
                 string PhoneNo = Console.ReadLine();
                 Console.WriteLine("Enter Person Zip");
                 string Zip = Console.ReadLine();
-                Address address= new Address(FirstName, LastName, AddressDetail, City, State, PhoneNo, Zip, Email);
+                Console.WriteLine("Enter Person Contact Type");
+                string Type = Console.ReadLine();
+               Address address= new Address(FirstName, LastName, AddressDetail, City, State, PhoneNo, Zip, Email);
+                modle.FirstName= FirstName;
+                modle.LastName = LastName;
+                modle.AddressDetail = AddressDetail;
+                modle.State = State;
+                modle.City = City;
+                modle.PhoneNo = PhoneNo;
+                modle.Zip = Zip;
+                modle.Email = Email;
+                modle.Type = Type;
+                if (repo.AddContact(address))
+                {
+                    Console.WriteLine("Contact Added Successfully");
+                }
+
                 addressbook.Add(FirstName, address);
                 using (StreamWriter sr = File.AppendText(path))
                 {
                     sr.WriteLine(address.FirstName + "," + address.LastName + "," + address.AddressDetail + "," + address.City + "," + address.State + "," + address.PhoneNo + "," + address.Zip + "," + address.Email);
                     sr.Close();
                 }
-                Console.WriteLine("Contact Added Successfully");
+       
             }
             catch (Exception e)
-            { 
+            {
+                Console.WriteLine(e);
             }    
          }
-      public void PreDedinedcontactList()
+        public void PreDedinedcontactList()
         {
             Address address0 = new Address("Alok", "Bhure", "Tifra", "Bilaspur", "Chhattisgarh", "7000593588", "495223", "Aloktbhure50@gmail.com");
             Address address1 = new Address("Prashant", "Bhure", "Tifra", "Bilaspur", "Chhattisgarh", "8965940302", "495223", "prashantbhure@gmail.com");
@@ -135,6 +156,5 @@ namespace Address_Book
         {
             ContactToCSV.ImplementCSVDataHandling();
         }
-
     }
 }

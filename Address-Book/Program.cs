@@ -10,7 +10,7 @@ namespace Address_Book
            try 
            {
             Methods method = new Methods();
-            method.PreDedinedcontactList();
+            ContactRepo repo = new ContactRepo(); 
             while (true)
              {
                 Address.printTitle();                   
@@ -45,17 +45,18 @@ namespace Address_Book
                             method.ConvertToJSON();
                      break;
                      case 10:
-                            System.Environment.Exit(0);
+                            repo.GetAllData();
+                     break;
+                     case 11:
+                            System.Environment.Exit(1);
                      break;
                 }
             }
            }
-             catch (Exception e)
-             {
+           catch (Exception e)
+           {
                 Console.WriteLine(e); 
-             }
+           }
         }
     }
 }
-
-
