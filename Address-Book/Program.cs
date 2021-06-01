@@ -10,7 +10,8 @@ namespace Address_Book
            try 
            {
             Methods method = new Methods();
-            ContactRepo repo = new ContactRepo(); 
+            ContactRepo repo = new ContactRepo();
+                
             while (true)
              {
                 Address.printTitle();                   
@@ -33,7 +34,7 @@ namespace Address_Book
                             method.FindByCity();
                      break;
                      case 6:
-                            method.CountAddressbook();
+                            repo.GetAllCountData();
                      break;
                      case 7:
                             method.FileIo();

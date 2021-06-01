@@ -54,7 +54,7 @@ namespace Address_Book
                 modle.Zip = Zip;
                 modle.Email = Email;
                 modle.Type = Type;
-                if (repo.AddContact(address))
+                if (repo.AddContact(modle))
                 {
                     Console.WriteLine("Contact Added Successfully");
                 }
@@ -89,27 +89,37 @@ namespace Address_Book
         {
             Console.WriteLine("Please Enter Name Which You Want To Edit");
             string Name = Console.ReadLine();
+            string res = "";
             foreach (var contact in addressbook)
                 if (Name.Equals(contact.Value.FirstName))
                 {
                     Console.WriteLine("Enter new FirstName");
                     string NewFirestName = Console.ReadLine();
+                    res = NewFirestName;
                     contact.Value.FirstName = NewFirestName;
                 }
-            Console.WriteLine("Contact is Edited");
+            modle.FirstName = res;
+            if (repo.EditContactByFirstName(modle))
+            {
+                Console.WriteLine("Contact Added Successfully");
+            }
         }
         public void DeleteAddressbook()
         {
             Console.WriteLine("Please Enter Name Which You Want To Delete");
             string delete = Console.ReadLine();
+            modle.FirstName = delete;
             foreach (var Contact in addressbook)
             {
                 if (Contact.Value.FirstName == delete)
                 {
                     addressbook.Remove(Contact.Key);
                 }
-            }   
-            Console.WriteLine("Contact Deleted Successfully");
+            }
+            if (repo.DeleteContactByFirstName(modle))
+            {
+                Console.WriteLine("Contact Added Successfully");
+            }
         }
         public void PrintSortedAddressbook()
         {

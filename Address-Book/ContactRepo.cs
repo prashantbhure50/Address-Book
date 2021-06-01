@@ -8,17 +8,18 @@ namespace Address_Book
    public class ContactRepo
     {
         public static string connectionString = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=AddresssbookDatabase;Integrated Security=True";
-        SqlConnection connection = new SqlConnection(connectionString);
+       
         public void GetAllData()
         {
             try
             {
+                SqlConnection connection = new SqlConnection(connectionString);
                 ContactModle addressModel = new ContactModle();
-                using (this.connection)
+                using (connection)
                 {
                     string query = @"Select * from AddresssbookDatabase;";
-                    SqlCommand cmd = new SqlCommand(query, this.connection);
-                    this.connection.Open();
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    connection.Open();
                     SqlDataReader dr = cmd.ExecuteReader();
                     if (dr.HasRows)
                     {
@@ -48,20 +49,41 @@ namespace Address_Book
                 System.Console.WriteLine(e.Message);
             }
         }
-
+        public void GetAllCountData()
+        {
+            SqlConnection connection = new SqlConnection(connectionString);
+            try
+            {
+                ContactModle addressModel = new ContactModle();
+                using (connection)
+                {
+                     string query = @"select count(*) from AddresssbookDatabase Where City='Bilaspur';";
+                    //string query = @"select FirstName,City from AddresssbookDatabase where City='Bilaspur'";
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    connection.Open();
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    Console.WriteLine("Number Of Person In Same City - "+ count);
+                }
+            }
+            catch (Exception e)
+            {
+                System.Console.WriteLine(e.Message);
+            }
+        }
         internal bool AddContact(Address address)
         {
             throw new NotImplementedException();
         }
-
         public bool AddContact(ContactModle model)
         {
+            SqlConnection connection = new SqlConnection(connectionString);
             try
             {
-                using (this.connection)
+                
+                using (connection)
                 {
                    
-                    SqlCommand command = new SqlCommand("SpAddContactDetail", this.connection);
+                    SqlCommand command = new SqlCommand("SpAddContactDetail", connection);
                     command.CommandType = System.Data.CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@FirstName", model.FirstName);
                     command.Parameters.AddWithValue("@LastName", model.LastName);
@@ -73,9 +95,9 @@ namespace Address_Book
                     command.Parameters.AddWithValue("@Email", model.Email);
                     command.Parameters.AddWithValue("@Type", model.Type);
 
-                    this.connection.Open();
+                    connection.Open();
                     var result = command.ExecuteNonQuery();
-                    this.connection.Close();
+                    connection.Close();
                     if (result != 0)
                     {
 
@@ -90,42 +112,73 @@ namespace Address_Book
             }
             finally
             {
-                this.connection.Close();
+                connection.Close();
             }
             return false;
         }
+        public bool EditContactByFirstName(ContactModle modle)
+        {
+            SqlConnection connection = new SqlConnection(connectionString);
+            try
+            {
+                using (connection)
+                { 
+                    SqlCommand command = new SqlCommand("EditContact", connection);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@FirstName", modle.FirstName);
+                    connection.Open();
+                    var result = command.ExecuteNonQuery();
+                    connection.Close();
+                    if (result != 0)
+                    {
 
-        //public bool UpdateSalary(Address model)
-        //{
-        //    try
-        //    {
-        //        using (this.connection)
-        //        {
-        //            //var qury=values()
-        //            SqlCommand command = new SqlCommand("spUpdateEmployeeSalary", this.connection);
-        //            command.CommandType = System.Data.CommandType.StoredProcedure;
-        //            command.Parameters.AddWithValue("@Id", model.ID);
-        //            command.Parameters.AddWithValue("@salary", model.salary);
-        //            this.connection.Open();
-        //            var result = command.ExecuteNonQuery();
-        //            this.connection.Close();
-        //            if (result != 0)
-        //            {
+                        return true;
+                    }
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return false;
+        }
+        public bool DeleteContactByFirstName(ContactModle modle)
+        {
+            SqlConnection connection = new SqlConnection(connectionString);
+            try
+            {
+             
+                using (connection)
+                {
+                    
+                    SqlCommand command = new SqlCommand("DeleteContact", connection);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@FirstName", modle.FirstName);
+                    connection.Open();
+                    var result = command.ExecuteNonQuery();
+                    connection.Close();
+                    if (result != 0)
+                    {
 
-        //                return true;
-        //            }
-        //            return false;
-        //        }
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        Console.WriteLine(e.Message);
-        //    }
-        //    finally
-        //    {
-        //        this.connection.Close();
-        //    }
-        //    return false;
-        //}
+                        return true;
+                    }
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return false;
+        }
     }
 }
